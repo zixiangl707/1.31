@@ -1,0 +1,22 @@
+#include<iostream>
+#include<string>
+using namespace std;
+struct Student {
+	string name;
+	int score;
+	Student() {}
+	Student(string n, int s): name(n), score(s) {}
+};
+int main() {
+	Student stu[3];
+	for(int i = 0; i < 3; i++) {
+		int s;
+		string n;
+		cin >> n >> s;
+		stu[i] = Student(n, s);
+	}
+	for(int i = 0; i <3; i++ ) {
+		cout << stu[i].name << " " << stu[i].score << endl;
+	}
+	return 0;
+}
