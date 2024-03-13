@@ -1,0 +1,46 @@
+#include <iostream>
+#include<algorithm>
+#include<string>
+using namespace std;
+const int N = 100100;
+int n, q;
+int arr[N];
+int binary_search1(int arr[], int len, int x) {
+	int l = -1, r = len;
+	while (l + 1 < r)
+	{
+		int mid = (l + r) / 2;
+		if (arr[mid] < x) {
+			l = mid;
+		}
+		else r = mid;
+	} 
+	if (arr[r] == x) return r;
+	else return -1;
+}
+int binary_search2(int arr[], int len, int x) {
+	int l = -1, r = len;
+	while (l + 1 < r) {
+		int mid = (l + r) / 2;
+		if (arr[mid] <= x) {
+			l = mid;
+		}
+		else r = mid;
+	}
+		if (arr[l] == x)return l;
+		else return -1;
+	}
+	int main() {
+		scanf_s("%d %d",&n,&q);
+		for (int i = 0; i < n; i++) {
+			scanf_s("%d",&arr[i]);
+		}
+		while (q--) {
+			int x;
+			scanf_s("%d",&x);
+			int res1 = binary_search1(arr, n, x);
+			int res2 = binary_search2(arr, n, x);
+			printf("%d %d\n", res1, res2);
+		}
+		return 0;
+	}
